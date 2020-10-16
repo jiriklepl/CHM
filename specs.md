@@ -37,4 +37,4 @@
 1:  () -> a* new { return (a*)malloc(sizeof(a)); }
 ```
 
-1. This defines a [generic](#generic) function that returns a pointer to an allocated data of `a` type.
+1. This defines a [generic](#generic) function that returns a pointer to allocated data of `a` type.
