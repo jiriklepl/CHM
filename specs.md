@@ -21,7 +21,7 @@
 
 ### Numeric types
 
-Those are the types that can appear as arguments of basic arithmetic [operators](operators).
+Those are the types that can appear as arguments of basic arithmetic [operators](#operators).
 
 - `Bool`
 - `I8`, `I16`, `I32`, `I64` (, etc.)
