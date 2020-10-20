@@ -1,5 +1,6 @@
 # CHM
 
+CHM is a programming language based on procedural paradigm and Hindley-Milner type system.
 
 ## Types
 
@@ -31,7 +32,7 @@ Those are the types that can appear as arguments of basic arithmetic [operators]
   - `Long` is an alias for `I64`
 - `U0`, `U8`, `U16`, `U32`, `U64` (, etc.)
   - `Void` is an alias for `U0`
-  - `UChar` is an alias for `U8`
+  - `Byte` is an alias for `U8`
   - `UShort` is an alias for `U16`
   - `UInt` is an alias for `U32`
   - `ULong` is an alias for `U64`
@@ -39,7 +40,7 @@ Those are the types that can appear as arguments of basic arithmetic [operators]
   - `Float` is an alias for `F32`
   - `Double` is an alias for `F64`
 
-All numeric values but `Bool` and `U8` are in `Num` [class](#classes).
+All numeric values except `Bool` and `Void` are in `Num` [class](#classes).
 
 ## Functions
 
@@ -59,7 +60,7 @@ All numeric values but `Bool` and `U8` are in `Num` [class](#classes).
 1:  () -> a* new { return (a*)malloc(sizeof(a)); }
 ```
 
-1. This defines a [generic](#generic) function that returns a pointer to allocated data of `a` type.
+1. This defines a [generic](#generics) function that returns a pointer to allocated data of `a` type.
 
 ### `pass` value and `return` statement
 
@@ -71,11 +72,41 @@ All numeric values but `Bool` and `U8` are in `Num` [class](#classes).
 
 ## Classes
 
+### Built-in classes
+
+`Num` is an builtin type class which cannot have any user-defined instances. All [arithmetic operators](arithmetic operators) are it's methods.
+
+### User-defined classes
+
+### Methods
+
+#### Access modifiers
+
+```
+1:  public
+2:  protected
+3:  private
+```
+
+1. public methods are accessible anywhere (*default*).
+2. protected methods are accessible from any method of any subclass of the class the method is defined in.
+3. private methods are accessible only from methods defined in the same class.
+
+Access modifiers can be used to avoid name collisions.
+
 ## Operators
 
 ### Arithmetic operators
+
+All C arithmetic operators, with expected semantics.
+
 ### Logic operators
+
+All C logic operators (but acting on `Bool`) with expected semantics.
+
 ### Assignment operators
+
+All C assignment operators, semantically equivalent to what they are shorthands for (e.g. `a += b` is a shorthand for `a = (a+b)`).
 
 ### User-definable operators
 
