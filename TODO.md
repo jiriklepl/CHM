@@ -2,5 +2,5 @@
 
 - Pointers
 - Classes
-- Operators
+- Generics
 - Control statements
