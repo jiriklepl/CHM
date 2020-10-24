@@ -1,6 +1,6 @@
 # TODO
 
-- Pointers
+- Structs and Unions
 - Classes
 - Generics
 - Control statements
