@@ -15,7 +15,7 @@ CHM is a programming language based on procedural paradigm and Hindley-Milner ty
 **NO REFERENCES** that would have implicit pointer semantics.
 
 - primitive types
-  - `Int`, `Long`, `Bool`, etc.
+  - numeric types: `Int`, `Long`, `Bool`, etc.
   - structs and unions
 - pointers: `type*`
 - functions: `(par_type1, par_type2, ...) -> return_type`
@@ -42,9 +42,13 @@ Those are the types that can appear as arguments of basic arithmetic [operators]
 
 All numeric values except `Bool` and `Void` are in `Num` [class](#classes).
 
-## Functions
+### Pointers
 
-### Declaration and definition
+Each Pointer type is uniquely derived from a certain base type. A variable of the pointer type can be derefernced to get the value it points to which is of the base type.
+
+### Functions
+
+#### Declaration and definition
 
 ```
 1:  (parameter_list) -> noptr-declarator;
@@ -54,7 +58,7 @@ All numeric values except `Bool` and `Void` are in `Num` [class](#classes).
 1. basic function declaration
 2. basic function definition
 
-### Example
+#### Example
 
 ```
 1:  () -> a* new { return (a*)malloc(sizeof(a)); }
@@ -62,13 +66,17 @@ All numeric values except `Bool` and `Void` are in `Num` [class](#classes).
 
 1. This defines a [generic](#generics) function that returns a pointer to allocated data of `a` type.
 
-### `pass` value and `return` statement
+#### `pass` value and `return` statement
 
 - `pass = value` sets the return value of the function to `value`.
 - `return value` sets the return value of the function to `value` and returns the control to the caller.
 - `return` returns the control to the caller without setting the return value.
 
-## Pointers
+## Variables
+
+Variables are declared by specifying the type (can be anonymous `_`) and followed by the variable's name.
+
+## Control statements
 
 ## Classes
 
