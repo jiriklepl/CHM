@@ -51,8 +51,8 @@ Each Pointer type is uniquely derived from a certain base type. A variable of th
 #### Declaration and definition
 
 ```
-1:  (parameter_list) -> noptr-declarator;
-2:  (parameter_list) -> noptr-declarator {...}
+1:  (parameter_list) -> type name;
+2:  (parameter_list) -> type name {...}
 ```
 
 1. basic function declaration
@@ -76,7 +76,28 @@ Each Pointer type is uniquely derived from a certain base type. A variable of th
 
 Variables are declared by specifying the type (can be anonymous `_`) and followed by the variable's name.
 
-## Control statements
+## Statements
+
+### Control statements
+
+```
+1:  if    [name] (condition) statement
+2:  else                     statement
+3:  while [name] (condition) statement
+4:  else                     statement
+5:  do    [name]             statement [while(condition)]
+```
+
+1. The usual if statement (can be named)
+2. The else branch
+3. The usual while statement (can be named)
+4. The else branch of the while statement (happens if the condition fails: not if the loop is broken)
+5. The usual do (while) statement
+
+#### `break` and `break name` statements
+
+- `break`: breaks the most nested control flow block (`if`, `while`, `do`).
+- `break name`: breaks the control flow block named `name`.
 
 ## Classes
 
