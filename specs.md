@@ -72,6 +72,30 @@ Each Pointer type is uniquely derived from a certain base type. A variable of th
 - `return value` sets the return value of the function to `value` and returns the control to the caller.
 - `return` returns the control to the caller without setting the return value.
 
+#### Member accessors
+
+Member accessors return reference to struct/union members (of the same name), they are syntactically a special function that takes one argument from left separated by a dot symbol:
+
+```
+object.member // returns the reference to the member in the object
+```
+
+##### `this` specifier
+
+One function argument (has to be of a pointer type) can be given `this` specifier to allow use of member accessors without the arrow symbol:
+
+```
+struct Dog {
+  String name;
+}
+
+(this Dog *rex) -> String get_name {
+  return name; // same as rex->name
+}
+```
+
+It also also allows for using the functions via the OO `object.function` syntax the same way accessors are given their arguments. The function, while normally taking `n` arguments, now takes the `this` argument which precedes the dot symbol and the other `n-1` arguments in the parentheses (the same way OO calls usually works).
+
 ## Variables
 
 Variables are declared by specifying the type (can be anonymous `_`) and followed by the variable's name.
@@ -95,6 +119,8 @@ Variables are declared by specifying the type (can be anonymous `_`) and followe
 5. The usual do (while) statement
 
 #### `break` and `break name` statements
+
+There is no `continue`, only `break`s.
 
 - `break`: breaks the most nested control flow block (`if`, `while`, `do`).
 - `break name`: breaks the control flow block named `name`.
@@ -137,6 +163,10 @@ All C logic operators (but acting on `Bool`) with expected semantics.
 
 All C assignment operators, semantically equivalent to what they are shorthands for (e.g. `a += b` is a shorthand for `a = (a+b)`).
 
+### Dereference operators
+
+The dot operator either accesses a member of a struct/union or calls a function with a `this` argument by passing the address of the struct/union as the `this` argument.
+
 ### User-definable operators
 
 All operator sequences enclosed in **angle brackets** (`<` and `>`) are user-definable, and overloadable if defined in a type [class](classes).
@@ -147,7 +177,7 @@ An example of a user-defined operator `<+>` is the following:
 
 ```
 class CustomAdd {
-   (a left, a right) -> a operator<+>;
-   // ^ a is the type of the parameters and the return type
+  (a left, a right) -> a operator<+>;
+  // ^ a is the type of the parameters and the return type
 }
 ```
