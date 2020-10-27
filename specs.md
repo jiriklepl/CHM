@@ -98,9 +98,16 @@ It also also allows for using the functions via the OO `object.function` syntax 
 
 ## Variables
 
-Variables are declared by specifying the type (can be anonymous `_`) and followed by the variable's name.
+Variables are declared by specifying the type (can be anonymous `_`), preceded by an optional `const` specifier and followed by the variable's name.
+
+### `const`
+
+The `const` specifier signifies the variable is constant, this also applies to all expresions the variable appears in.
+
 
 ## Statements
+
+### Assignment statements
 
 ### Control statements
 
