@@ -138,6 +138,10 @@ There is no `continue`, only `break`s.
 
 `Num` is an builtin type class which cannot have any user-defined instances. All [arithmetic operators](arithmetic operators) are it's methods.
 
+### `Default` class
+
+TODO
+
 ### User-defined classes
 
 ### Methods
