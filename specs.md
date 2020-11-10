@@ -109,7 +109,11 @@ The `const` specifier signifies the variable is constant, this also applies to a
 
 ### Assignment statements
 
+See assignment operators
+
 ### Control statements
+
+#### Conditional control statements
 
 ```
 1:  if    [name] (condition) statement
@@ -132,21 +136,53 @@ There is no `continue`, only `break`s.
 - `break`: breaks the most nested control flow block (`if`, `while`, `do`).
 - `break name`: breaks the control flow block named `name`.
 
+#### `switch` statement
+
+```
+1: switch [name] (value) {
+case const_value0:
+
+...
+
+case const_value1:
+
+...
+
+case const_value2:
+
+...
+
+default:
+}
+```
+
+1. The usual switch statement (optionally named) with any number of fall-through cases each with an optional `break`, here depicted 3 usual cases with given constant (literal) values and a `default` case.
+
+#### `return` statement
+
+See [functions](functions).
+
 ## Classes
 
 ### Built-in classes
 
-`Num` is an builtin type class which cannot have any user-defined instances. All [arithmetic operators](arithmetic operators) are it's methods.
+`Num` is an builtin type class which cannot have any user-defined instances. All [arithmetic operators](arithmetic operators) are its methods.
 
 ### `Default` class
 
-TODO
+`Default` is an builtin type class which is implicitly instantiated for all numeric types and for all pointer types. It has one method named `default` which returns the respective zero/null value.
 
 ### User-defined classes
 
-### Methods
+```
+class name type { ...methods... }
+```
 
-#### Access modifiers
+User-defined classes are defined with the `class` keyword followed by the name of the defined class and the type that is being subject to the class and then followed by a brace-enclosed list of the class's methods (with their respective default implementations).
+
+### User-defined instances
+
+### Access modifiers
 
 ```
 1:  public
@@ -164,7 +200,7 @@ Access modifiers can be used to avoid name collisions.
 
 ### Arithmetic operators
 
-All C arithmetic operators, with expected semantics.
+All C arithmetic operators, with expected semantics. They act on operands from the `Num` class.
 
 ### Logic operators
 
@@ -172,7 +208,9 @@ All C logic operators (but acting on `Bool`) with expected semantics.
 
 ### Assignment operators
 
-All C assignment operators, semantically equivalent to what they are shorthands for (e.g. `a += b` is a shorthand for `a = (a+b)`).
+All C assignment operators.
+
+Composed assignment operators are semantically equivalent to what they are shorthands for (e.g. `a += b` is a shorthand for `a = (a+b)`), they follow their respective type restrictions.
 
 ### Dereference operators
 
